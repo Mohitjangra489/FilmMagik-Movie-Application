@@ -13,7 +13,7 @@ import Moviedetails from './components/Moviedetails';
 
 function App() {
 
-console.log("initial commit successfully");
+console.log("initial commit successfully by mohit jangra!");
 return (
   <>
   {/* <BrowserRouter> */}
