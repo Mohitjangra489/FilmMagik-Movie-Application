@@ -1,18 +1,60 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 
+import Navbar from './components/Navbar';
+import Carouselcomponent from './components/Carouselcomponent';
+import Trendingmovies from './components/Trendingmovies.js';
+import Searchmovies from './components/Searchmovies';
+import Toprated from './components/Toprated';
+import Upcoming from './components/Upcoming'
+import Footer from './components/Footer';
+import Moviedetails from './components/Moviedetails';
+import Errorpage from './components/Errorpage';
+
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement:<Errorpage/>,
+    children: [
+      {
+        path: "/",
+        element: <><Carouselcomponent/><Trendingmovies /> <Toprated /> <Upcoming/> <Searchmovies/></>,
+      },
+      {
+        path:'/trending',
+        element:<Trendingmovies/>
+      },
+      {
+        path: "/toprated",
+        element: <Toprated />,
+      },
+      {
+        path: "/Searchmovies",
+        element: <Searchmovies />,
+      },
+      {
+        path: "/Upcoming",
+        element: <Upcoming />,
+      },
+      {
+        path: "/Moviedetails",
+        element: <Moviedetails />,
+      },
+    ],
+  },
+ 
+]);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-    <App />
-    </BrowserRouter>
-    
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 

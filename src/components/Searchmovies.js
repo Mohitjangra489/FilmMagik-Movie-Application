@@ -19,13 +19,11 @@ function Searchmovies() {
       const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=${moviename}&api_key=5dfb5357499bf6bfcc90e5991d09de63`,headers);
       const movies = await response.json();
       
-      console.log(movies);
       setsearchedmovie(movies.results);
       
    };
    
   function handlemovieclick(movieid) {
-    console.log("handle", movieid);
     movieclick(movieid);
   }
 
@@ -46,15 +44,12 @@ function Searchmovies() {
 
 
     function handlesearchmovie(){
-  console.log(moviename);
     api();
+    };
+    useEffect(()=>{
+    },[searchedmovie]);
 
-    }
     useEffect(()=>{
-     console.log("rendered")
-    },[searchedmovie])
-    useEffect(()=>{
-     console.log("moviename")
     },[moviename])
 
   return (
@@ -63,13 +58,12 @@ function Searchmovies() {
     <div className='searchdiv' style={{backgroundImage:`url(${backimage})`}}>
       <h1 className='welcome'>Welcome.</h1>
      <span className='spantag'> Millions of movies,TV shows and people to discover. Explore now.</span><br></br>
-      <input type='text'  className="searchinput" onChange={(e)=>{setmoviename(e.target.value)}} placeholder='Search for a movie,TV show,person....'></input><button onClick={handlesearchmovie} className='searchbutton'>search</button>
+      <input type='text'  className="searchinput" onChange={(e)=>{setmoviename(e.target.value)} }  onKeyDown={(e)=>{if(e.key==="Enter"){handlesearchmovie()}}} placeholder='Search for a movie,TV show,person....'></input><button onClick={handlesearchmovie} className='searchbutton'>search</button>
     </div>
     <div className='maindiv'>
        {
         searchedmovie.map((element)=>{
           let a="https://image.tmdb.org/t/p/original";
-          console.log(element.title)
        return(
           <>
           <div >

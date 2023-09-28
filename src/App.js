@@ -1,6 +1,6 @@
 import './App.css';
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {Outlet} from "react-router-dom";
 import { useEffect } from 'react';
 import Navbar from './components/Navbar'
 import Carouselcomponent from './components/Carouselcomponent';
@@ -12,12 +12,17 @@ import Footer from './components/Footer';
 import Moviedetails from './components/Moviedetails';
 
 function App() {
-
-console.log("initial commit successfully  mohit jangra!");
+  useEffect(()=>{
+    window.scrollTo(0, 0);
+})
 return (
   <>
+  <Navbar/>
+  <Outlet/>
+  <Footer />
+  
   {/* <BrowserRouter> */}
-  <Routes>
+  {/* <Routes>
     <Route path='/' element={
       <>
     <Navbar/> 
@@ -35,15 +40,8 @@ return (
       <Route  exact path='/search' element={<Searchmovies/>}></Route>
       <Route  exact path='/moviedetails' element={<Moviedetails/>}></Route>
 
-</Routes>
-{/* </BrowserRouter> */}
-{/* <Navbar></Navbar>
-<Carouselcomponent></Carouselcomponent>
-<Trendingmovies></Trendingmovies>
-<Toprated></Toprated>
-<Upcoming></Upcoming>
-<Searchmovies></Searchmovies>
-<Footer></Footer> */}
+</Routes> */}
+
 </>
 );
 }

@@ -9,7 +9,7 @@ function Moviedetails() {
     const movie = location.state;
     let a = "https://image.tmdb.org/t/p/original";
     let b="https://i.ytimg.com/vi/ZfVYgWYaHmE/hqdefault.jpg"
-    console.log(movie);
+    //(movie);
 
     let castarray = movie.credits.cast;
 
@@ -19,7 +19,6 @@ function Moviedetails() {
 
     return (
         <>
-            <Navbar></Navbar>
             <div>
                 <div className='moviecnt'>
                     <div >
@@ -96,7 +95,6 @@ function Moviedetails() {
                 </div>
 
             </div>
-            <Footer></Footer>
         </>
     )
 }

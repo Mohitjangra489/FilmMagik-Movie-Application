@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
+import Shimmer from './Shimmer';
 
 function Trendingmoviescomponent() {
   const [allmovies, setallmovies] = useState([]);
@@ -18,7 +19,7 @@ function Trendingmoviescomponent() {
   }
 
   function handlemovieclick(movieid) {
-    console.log("handle", movieid);
+    //("handle", movieid);
     movieclick(movieid);
   }
 
@@ -31,7 +32,7 @@ function Trendingmoviescomponent() {
     const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=5dfb5357499bf6bfcc90e5991d09de63&append_to_response=videos,credits,images`, headers);
     const movies = await response.json();
 
-    console.log(movies.title)
+    //(movies.title)
     navigate("/moviedetails",{state:movies});
 
     // setallmovies(movies.results)
@@ -46,30 +47,32 @@ function Trendingmoviescomponent() {
     const response = await fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=5dfb5357499bf6bfcc90e5991d09de63&page=${page}&language=en-US`, headers);
     const movies = await response.json();
 
-    console.log(movies)
+    //(movies)
     setallmovies(movies.results)
   };
 
   useEffect(() => {
     api();
-  }, [page])
-  return (
+  }, [page]);
+
+
+  return (allmovies.length===0) ? <Shimmer/> : (
     <div className='contn'>
       <h1 style={{ color: "white", paddingTop: "20px", marginLeft: "20px" }} className='test'>Trending </h1>
       <div className='maindiv'>
         {
           allmovies.map((element) => {
             let a = "https://image.tmdb.org/t/p/original";
-            console.log(element.title)
+            //(element.title)
             return (
               <>
-                <div>
+                <div >
                   <div key={element.id} className='moviediv' >
-                    <img src={a + element.poster_path} className='Movieimage' onClick={(e) => { handlemovieclick(e.target.id) }} id={element.id}></img>
+                    <img src={a + element.poster_path} className='Movieimage' onClick={(e) => { handlemovieclick(e.target.id) }} id={element.id} ></img>
                   </div>
                   <div className='movietitle'>
-                    <button className='rating-button'>{Math.round(element.vote_average * Math.pow(10, 1)) / Math.pow(10, 1)}</button>
-                    <h1 style={{ fontSize: '20px' }}>{element.title}</h1>
+                    <button className='rating-button' >{Math.round(element.vote_average * Math.pow(10, 1)) / Math.pow(10, 1)}</button>
+                    <h1 style={{ fontSize: '20px' }} >{element.title}</h1>
                   </div>
                 </div>
               </>
@@ -83,6 +86,7 @@ function Trendingmoviescomponent() {
         <button onClick={handleprev} className='prevbtn' >Prev</button><span className='pageno'>{page}</span><button onClick={handlenext} className='nextbtn'>Next</button>
       </div>
     </div>
+  
   )
 }
 

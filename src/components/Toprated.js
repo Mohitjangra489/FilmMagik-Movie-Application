@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState,useEffect } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
-
+import Shimmer from './Shimmer';
 
 function Toprated() {
     const[allmovies,setallmovies]=useState([]);
@@ -22,7 +22,7 @@ function Toprated() {
     }
 
     function handlemovieclick(movieid) {
-      console.log("handle", movieid);
+      //("handle", movieid);
       movieclick(movieid);
     }
   
@@ -35,7 +35,7 @@ function Toprated() {
       const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=5dfb5357499bf6bfcc90e5991d09de63&append_to_response=videos,credits,images`, headers);
       const movies = await response.json();
   
-      console.log(movies.title)
+      //(movies.title)
       navigate("/moviedetails",{state:movies});
   
       // setallmovies(movies.results)
@@ -51,24 +51,24 @@ function Toprated() {
         const response = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=5dfb5357499bf6bfcc90e5991d09de63&page=${page}&language=en-US`,headers);
         const movies = await response.json();
         
-        console.log(movies)
+        //(movies)
         setallmovies(movies.results)
      };
    
     useEffect(()=>{
         api();   
-    },[page])
-  return (
+    },[page]);
+
+  return (allmovies.length===0) ? <Shimmer/> : (
     <div className='contn'>
     <h1 style={{color:"white",paddingTop:"20px",marginLeft:"20px"}}>Top-Rated</h1>
   <div className='maindiv'>
     { 
-      allmovies.map((element)=>{
+      allmovies.map((element,index)=>{
           let a="https://image.tmdb.org/t/p/original";
-          console.log(element.title)
        return(
           <>
-            <div>
+            <div key={index}>
             <div key={element.id} className='moviediv'>
             <img src={a+element.poster_path}  className='Movieimage' onClick={(e) => { handlemovieclick(e.target.id) }} id={element.id}></img>
             </div>

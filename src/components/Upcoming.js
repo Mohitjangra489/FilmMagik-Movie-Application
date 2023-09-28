@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState,useEffect } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
-
+import Shimmer from './Shimmer';
 
 function Upcoming() {
     const[allmovies,setallmovies]=useState([]);
@@ -22,7 +22,7 @@ function Upcoming() {
         }
     }
     function handlemovieclick(movieid) {
-      console.log("handle", movieid);
+      //("handle", movieid);
       movieclick(movieid);
     }
   
@@ -35,7 +35,7 @@ function Upcoming() {
       const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=5dfb5357499bf6bfcc90e5991d09de63&append_to_response=videos,credits,images`, headers);
       const movies = await response.json();
   
-      console.log(movies.title)
+      //(movies.title)
       navigate("/moviedetails",{state:movies});
   
       // setallmovies(movies.results)
@@ -49,23 +49,24 @@ function Upcoming() {
         };
         const response = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=5dfb5357499bf6bfcc90e5991d09de63&page=${page}&language=en-US`,headers);
         const movies = await response.json();
-        
-        console.log(movies)
+        https://api.themoviedb.org/3/list/27
+        //(movies)
         setallmovies(movies.results)
      };
    
     useEffect(()=>{
         api();   
-    },[page])
-  return (
-    <div className='contn'>
+    },[page]);
+
+    return (allmovies.length===0) ? <Shimmer/> : (
+     <div className='contn'>
     <h1 style={{color:"white",paddingTop:"20px",marginLeft:"20px"}}>New Releases</h1>
   <div className='maindiv'>
     {   
       allmovies.map((element)=>{
-        console.log(element)
+        //(element)
           let a="https://image.tmdb.org/t/p/original";
-          console.log(element.title)
+          //(element.title)
        return(
           <>
            <div>
