@@ -491,9 +491,6 @@ body {
 .titlediv {
   display: flex;
   flex-direction: column;
-  /* overflow: scroll; */
-  /* overflow-y: hidden; */
-  height: 550px;
   padding-top: 55px;
   padding: 60px;
 
