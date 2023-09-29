@@ -141,6 +141,9 @@ body {
   .w-100.d-block{
     height: 210px;
     }
+    .movielogo{
+      width: 11rem;
+    }
 
   .navigation-menu ul {
     display: none;
