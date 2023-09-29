@@ -20,9 +20,9 @@ function Navbar() {
                 <div className={isexpanded ? "navigation-menu expanded":"navigation-menu"} >
                     <ul>
                         <li><Link to={`/trending`} onClick={()=>{setisexpanded(!isexpanded)}}>Most Popular</Link></li>
-                        <li><Link to={`/toprated`}>Top-Rated</Link></li>
-                        <li><Link to={`/upcoming`}>New Releases</Link></li>
-                        <li><Link to={`/searchmovies`}>SearchMovie</Link></li>
+                        <li><Link to={`/toprated`} onClick={()=>{setisexpanded(!isexpanded)}}>Top-Rated</Link></li>
+                        <li><Link to={`/upcoming`} onClick={()=>{setisexpanded(!isexpanded)}}>New Releases</Link></li>
+                        <li><Link to={`/searchmovies`} onClick={()=>{setisexpanded(!isexpanded)}}>SearchMovie</Link></li>
                         {/* <li><Link to={`/trending`}>Most Popular</Link></li>
                         <li><Link to={`/toprated`}>Top-Rated</Link></li>
                         <li><Link to={`/upcoming`}>New Releases</Link></li>

@@ -234,7 +234,7 @@ body {
 .movielogo {
   position: relative;
   height: 100%;
-  width: 14rem;
+  width: 13rem;
 }
 
 
@@ -460,6 +460,7 @@ body {
   height: 550px;
   justify-content: center;
   gap: 20px;
+  overflow: auto;
   align-items: center;
   color: white;
 }
@@ -634,8 +635,6 @@ body {
   width: 200px;
   border-radius: 10px;
   background-color: #5c59598c;
-
-
 }
 
 .card-container {
