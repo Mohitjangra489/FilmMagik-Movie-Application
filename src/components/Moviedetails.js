@@ -9,7 +9,6 @@ function Moviedetails() {
     const movie = location.state;
     let a = "https://image.tmdb.org/t/p/original";
     let b="https://i.ytimg.com/vi/ZfVYgWYaHmE/hqdefault.jpg"
-    //(movie);
 
     let castarray = movie.credits.cast;
 
@@ -35,7 +34,7 @@ function Moviedetails() {
                                         movie.genres.map((genre) => {
                                             return (
 
-                                                <span>{genre.name}..</span>
+                                                <span key={genre?.id}>{genre.name}..</span>
 
                                             )
                                         })
@@ -85,7 +84,7 @@ function Moviedetails() {
                    {
                     movie.videos.results.map((video)=>{
                         return(
-                           <div style={{backgroundImage:`url("https://i.ytimg.com/vi/${video.key}/hqdefault.jpg")`}} className='trailerimg'>
+                           <div  key={video.id} style={{backgroundImage:`url("https://i.ytimg.com/vi/${video.key}/hqdefault.jpg")`}} className='trailerimg'>
                             <a href={`https://www.youtube.com/watch?v=${video.key}`}><img src={playbutton} className='playbtnimg' ></img></a>
                             </div>
                         )

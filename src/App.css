@@ -138,6 +138,13 @@ body {
   .hamburger {
     display: block;
   }
+  .bothctn{
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .posterctn{
+    /* flex-direction: column; */
+  }
   .w-100.d-block{
     height: 210px;
     }
@@ -458,9 +465,10 @@ body {
 .posterctn {
   display: flex;
   height: 550px;
-  justify-content: center;
+  /* justify-content: center; */
   gap: 20px;
   overflow: auto;
+  overflow-y: hidden;
   align-items: center;
   color: white;
 }
@@ -577,6 +585,8 @@ body {
   display: flex;
   margin-top: 20px;
   gap: 60px;
+  /* justify-content: center;
+    flex-wrap: wrap; */
 }
 
 .trailerimg {

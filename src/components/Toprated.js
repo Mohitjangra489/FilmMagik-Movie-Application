@@ -40,6 +40,7 @@ function Toprated() {
   
       // setallmovies(movies.results)
     };
+
     async function api(){
         const headers = {
             'Authorization':'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1ZGZiNTM1NzQ5OWJmNmJmY2M5MGU1OTkxZDA5ZGU2MyIsInN1YiI6IjY0ZWM4Mzg2MWZlYWMxMDBlMTZiOWNmMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.yM02HiqaApbT2xP9qGiyNdx1j6hTkTBmUqqyQNW9llM',
@@ -51,7 +52,7 @@ function Toprated() {
         const response = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=5dfb5357499bf6bfcc90e5991d09de63&page=${page}&language=en-US`,headers);
         const movies = await response.json();
         
-        //(movies)
+      console.log(movies.results);
         setallmovies(movies.results)
      };
    
@@ -61,15 +62,15 @@ function Toprated() {
 
   return (allmovies.length===0) ? <Shimmer/> : (
     <div className='contn'>
-    <h1 style={{color:"white",paddingTop:"20px",marginLeft:"20px"}}>Top-Rated</h1>
+    <h1 style={{color:"white",paddingTop:"20px",marginLeft:"20px"}} id='main-heading'>Top-Rated</h1>
   <div className='maindiv'>
-    { 
-      allmovies.map((element,index)=>{
+    {  
+      allmovies.map((element)=>{
           let a="https://image.tmdb.org/t/p/original";
        return(
           <>
-            <div key={index}>
-            <div key={element.id} className='moviediv'>
+            <div key={element?.id}>
+            <div  className='moviediv'>
             <img src={a+element.poster_path}  className='Movieimage' onClick={(e) => { handlemovieclick(e.target.id) }} id={element.id}></img>
             </div>
             <div className='movietitle'>
