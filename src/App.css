@@ -142,8 +142,11 @@ body {
     justify-content: center;
     flex-wrap: wrap;
   }
-  .posterctn{
-    /* flex-direction: column; */
+  .searchbutton{
+    display: none;
+  }
+  .searchinput{
+    font-size: 16px;
   }
   .w-100.d-block{
     height: 210px;
@@ -382,6 +385,7 @@ body {
   background-color: black;
   min-height: 500px;
   background-repeat: no-repeat;
+  background-size: contain;
   padding-left: 50px;
 }
 
