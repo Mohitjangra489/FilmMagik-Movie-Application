@@ -74,7 +74,7 @@ body {
   color: white;
 }
 
-.navbar-container{
+.navbar-container {
   position: sticky;
   top: 0px;
   z-index: 3;
@@ -83,7 +83,7 @@ body {
 .img {
   height: 60px;
   width: 60px;
-  
+
   border-radius: 50%;
   margin-top: -6px;
 }
@@ -138,22 +138,27 @@ body {
   .hamburger {
     display: block;
   }
-  .bothctn{
+
+  .bothctn {
     justify-content: center;
     flex-wrap: wrap;
   }
-  .searchbutton{
+
+  .searchbutton {
     display: none;
   }
-  .searchinput{
+
+  .searchinput {
     font-size: 16px;
   }
-  .w-100.d-block{
+
+  .w-100.d-block {
     height: 210px;
-    }
-    .movielogo{
-      width: 11rem;
-    }
+  }
+
+  .movielogo {
+    width: 11rem;
+  }
 
   .navigation-menu ul {
     display: none;
@@ -557,7 +562,7 @@ body {
   text-align: center;
   padding-top: 8px;
   margin-bottom: -2px;
-
+overflow: hidden;
   font-weight: 600;
   color: black;
 }
@@ -566,6 +571,7 @@ body {
   text-align: center;
   margin-bottom: -2px;
   font-style: italic;
+  overflow: hidden;
 }
 
 .carddiv {
