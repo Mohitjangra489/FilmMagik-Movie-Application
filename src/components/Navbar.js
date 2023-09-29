@@ -9,9 +9,9 @@ function Navbar() {
     return (
         <>
             <nav className='containernav'>
-                <a href='/' className='title'>
+                <Link to='/' className='title'>
                     <img src={movielogo} className='movielogo'></img>
-                </a>  
+                </Link>  
                 <button onClick={()=>{setisexpanded(!isexpanded)}} className='hamburger'>
                     <img src={image} className='img'></img>
                 </button>
