@@ -58,7 +58,7 @@ function Searchmovies() {
     <div className='searchdiv' style={{backgroundImage:`url(${backimage})`}}>
       <h1 className='welcome'>Welcome.</h1>
      <span className='spantag'> Millions of movies,TV shows and people to discover. Explore now.</span><br></br>
-      <input type='text'  className="searchinput" onChange={(e)=>{setmoviename(e.target.value)} }  onKeyDown={(e)=>{if(e.key==="Enter"){handlesearchmovie()}}} placeholder='Search for a movie,TV show,person....'></input><button onClick={handlesearchmovie} className='searchbutton'>search</button>
+      <input type='text'  className="searchinput" onChange={(e)=>{setmoviename(e.target.value)} }  onKeyDown={(e)=>{if(e.key==="Enter"){handlesearchmovie()}}} placeholder='Search for a movie....'></input><button onClick={handlesearchmovie} className='searchbutton'>search</button>
     </div>
     <div className='maindiv'>
        {
