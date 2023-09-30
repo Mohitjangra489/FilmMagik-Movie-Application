@@ -138,6 +138,9 @@ body {
   .hamburger {
     display: block;
   }
+  .oops{
+    /* font-size: 40px; */
+  }
 
   .bothctn {
     justify-content: center;
@@ -669,4 +672,33 @@ overflow: hidden;
   border-radius: 5px;
   padding-top: 20px;
   margin-left: 20px;
+}
+.oops{
+  background: #FF0000;
+  background: linear-gradient(to top, #fb0d0d 16%, #000000 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: calc(10.375rem + 1.5vw);
+  font-weight: 700; 
+  /* font-size: 200px; */
+}
+.errorpage{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  min-width: 100%;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #F6F8F9;
+  background: radial-gradient(circle farthest-corner at center center, #F6F8F9 0%, #E5EBEE 30%, #D7DEE3 60%, #F5F7F9 100%);
+  
+}
+.sorry{
+  font-size: 18px;
+    font-weight: bold;
+}
+.sorry-1{
+  font-size: 25px;
+    font-weight: bold;
 }

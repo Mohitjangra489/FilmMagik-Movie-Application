@@ -6,10 +6,12 @@ function Errorpage() {
     console.log(error)
   return (
     <div className='errorpage'>
-      <h1>Oops!</h1>
-      <p>Sorry,an unexpected error has occured.</p>
+      <p className='oops'>Oops!</p>
+
+      <p className='sorry'>Sorry,an unexpected error has occured.</p>
+      <i className='sorry-1'>{ error.data }</i>
       <p>
-        <i>{ error.status + "  "+error.statusText }</i>
+        <i className='sorry-1'>{ error.status + " - "+error.statusText }</i>
       </p>
     </div>
   )
