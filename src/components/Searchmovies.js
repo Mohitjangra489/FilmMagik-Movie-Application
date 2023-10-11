@@ -36,7 +36,7 @@ function Searchmovies() {
     const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=5dfb5357499bf6bfcc90e5991d09de63&append_to_response=videos,credits,images`, headers);
     const movies = await response.json();
 
-    console.log(movies.title)
+    // console.log(movies.title)
     navigate("/moviedetails",{state:movies});
 
     // setallmovies(movies.results)
