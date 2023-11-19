@@ -1,4 +1,4 @@
-`import React, { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -84,7 +84,7 @@ function Moviedetails() {
                    {
                     movie.videos.results.map((video)=>{
                         return(
-                           <div  title="Watch trailer" key={video.id} style={{backgroundImage:`url("https://i.ytimg.com/vi/${video.key}/hqdefault.jpg")`}} className='trailerimg'>
+                           <div  key={video.id} style={{backgroundImage:`url("https://i.ytimg.com/vi/${video.key}/hqdefault.jpg")`}} className='trailerimg'>
                             <a href={`https://www.youtube.com/watch?v=${video.key}`}><img src={playbutton} className='playbtnimg' ></img></a>
                             </div>
                         )
