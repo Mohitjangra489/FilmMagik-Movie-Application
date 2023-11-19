@@ -52,7 +52,7 @@ function Toprated() {
         const response = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=5dfb5357499bf6bfcc90e5991d09de63&page=${page}&language=en-US`,headers);
         const movies = await response.json();
         
-      console.log(movies.results);
+      // console.log(movies.results);
         setallmovies(movies.results)
      };
    
